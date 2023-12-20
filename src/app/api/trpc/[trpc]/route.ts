@@ -3,7 +3,6 @@ import { appRouter } from "@/server/trpc";
 
 // this is the server RPC API handler
 const handler = (request: Request) => {
-  console.log(`incoming request ${request.url}`);
   return fetchRequestHandler({
     endpoint: "/api/trpc",
     req: request,
@@ -15,5 +14,4 @@ const handler = (request: Request) => {
   });
 };
 
-export const GET = handler;
-export const POST = handler;
+export { handler as GET, handler as POST };
